@@ -2,21 +2,23 @@
   {
     "name" : "Brian Schorn",
     "bio" : "German",
-    "imgURL" : "../assets/brian.jpg"
-
-  }
+    "imgURL" : "../assets/brian.jpg",
+    "likes" : 0
+  },
 
   {
     "name" : "Erik Noonan",
     "bio" : "Minnetonkan",
-    "imgURL" : "../assets/erik.jpg"
+    "imgURL" : "../assets/erik.jpg",
+    "likes" : 0
 
-  }
+  },
 
   {
     "name" : "Tyler Herman",
     "bio" : "North Dakotan",
-    "imgURL" : "../assets/tyler.jpg"
+    "imgURL" : "../assets/tyler.jpg",
+    "likes" : 0
 
   }
 
