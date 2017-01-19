@@ -30,22 +30,39 @@ app.get('/bios', function(req, res) {
 app.get('/likes', function(req, res) {
   var likeInfo = {};
 
-  likeInfo.brian = bLikes;
-  likeInfo.erik = eLikes;
-  likeInfo.tyler = tLikes;
+  likeInfo.BrianSchorn = bLikes;
+  likeInfo.ErikNoonan = eLikes;
+  likeInfo.TylerHerman = tLikes;
 
   console.log(likeInfo);
   res.send(likeInfo);
 
 });
 
-info.forEach(function(person){
-  app.post('/likes'+person.name.replace(" ", ""), function(req, res) {
-    info.
+// info.forEach(function(person){
+//   app.post('/likes'+person.name.replace(" ", ""), function(req, res) {
+//     console.log("pressed: " + JSON.stringify(req.body).charAt(2).toLowerCase());
+//     if()
+//
+//   });
+//
+// });
 
-  }
+  app.post('/likes/BrianSchorn', function(req, res) {
+    bLikes++;
+    console.log(bLikes);
+    res.sendStatus(200);
+  });
 
-});
+  app.post('/likes/ErikNoonan', function(req, res) {
+    eLikes++;
+    res.sendStatus(200);
+  });
+
+  app.post('/likes/TylerHerman', function(req, res) {
+    tLikes++;
+    res.sendStatus(200);
+  });
 
 
 
