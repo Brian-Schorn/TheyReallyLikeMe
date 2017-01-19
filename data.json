@@ -1,0 +1,24 @@
+[
+  {
+    "name" : "Brian Schorn",
+    "bio" : "German",
+    "imgURL" : "../assets/brian.jpg"
+
+  }
+
+  {
+    "name" : "Erik Noonan",
+    "bio" : "Minnetonkan",
+    "imgURL" : "../assets/erik.jpg"
+
+  }
+
+  {
+    "name" : "Tyler Herman",
+    "bio" : "North Dakotan",
+    "imgURL" : "../assets/tyler.jpg"
+
+  }
+
+
+]
