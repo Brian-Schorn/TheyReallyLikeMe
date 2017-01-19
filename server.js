@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 var info = require('./data.json');
 var app = express();
 
+var bLikes = 0;
+var eLikes = 0;
+var tLikes = 0;
 
 //Makes everything in the public folder visible
 app.use(express.static('public'));
@@ -26,12 +29,24 @@ app.get('/bios', function(req, res) {
 //then respond with that object.
 app.get('/likes', function(req, res) {
   var likeInfo = {};
-  info.forEach(function(person){
-    likeInfo.String(person.name) = person.likes;
-  })
+
+  likeInfo.brian = bLikes;
+  likeInfo.erik = eLikes;
+  likeInfo.tyler = tLikes;
+
+  console.log(likeInfo);
   res.send(likeInfo);
 
 });
+
+info.forEach(function(person){
+  app.post('/likes'+person.name.replace(" ", ""), function(req, res) {
+    info.
+
+  }
+
+});
+
 
 
 app.listen(3000);
