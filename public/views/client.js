@@ -19,10 +19,10 @@ function getInfo() {
   function displayInfo(info){
     console.log(info);
     info.forEach(function(person){
-      $('#container').append("<li>Name: " + person.name + "</li>");
-      $('#container').append("<li>Bio: " + person.bio + "</li>");
-      $('#container').append("<li><img src='./assets/" + person.imgURL + "' /></li>");
-      $('#container').append("<li>Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
+      $('#container').append("<li>Name: " + person.name);
+      $('#container').append("Bio: " + person.bio);
+      $('#container').append("<img src='./assets/" + person.imgURL + "' />");
+      $('#container').append("Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
       // $('#container').append("<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
     });
     getLikes();
