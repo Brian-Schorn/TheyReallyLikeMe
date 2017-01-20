@@ -20,10 +20,11 @@ function getInfo() {
     console.log(info);
     var idVar = 0;
     info.forEach(function(person){
-      $('#container').append("<li>Name: " + person.name);
-      $('#container').append("Bio: " + person.bio);
-      $('#container').append("<br>Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name='" + person.name.replace(" ", "") + "' data-num='" + idVar +"'>Like!</button>");
-      $('#container').append("<img src='./assets/" + person.imgURL + "' /></li>");
+      $('#container').append("<div class='person'><li><img src='./assets/" + person.imgURL + "' />");
+      $('#container').append("Name: " + person.name);
+      $('#container').append("<br>Bio: " + person.bio);
+      $('#container').append("<br>Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name='" + person.name.replace(" ", "") + "' data-num='" + idVar +"'>Like!</button></li></div>");
+
       idVar++;
       // $('#container').append("Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
       // $('#container').append("<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");

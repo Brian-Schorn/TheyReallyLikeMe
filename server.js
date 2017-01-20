@@ -34,6 +34,8 @@ app.get('/likes', function(req, res) {
 
 });
 
+
+//Creates a listener for post on each of the name paths in the data.json
 info.forEach(function(person){
   app.post('/likes/'+person.name.replace(" ", ""), function(req, res) {
     console.log(info[req.body.id]);
