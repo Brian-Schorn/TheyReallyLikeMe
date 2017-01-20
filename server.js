@@ -4,10 +4,6 @@ var bodyParser = require('body-parser');
 var info = require('./data.json');
 var app = express();
 
-var bLikes = 0;
-var eLikes = 0;
-var tLikes = 0;
-
 //Makes everything in the public folder visible
 app.use(express.static('public'));
 //Coverts any URL Encoded body into a javascript object
@@ -30,39 +26,39 @@ app.get('/bios', function(req, res) {
 app.get('/likes', function(req, res) {
   var likeInfo = {};
 
-  likeInfo.BrianSchorn = bLikes;
-  likeInfo.ErikNoonan = eLikes;
-  likeInfo.TylerHerman = tLikes;
+  likeInfo.BrianSchorn = info[0].likes;
+  likeInfo.ErikNoonan = info[1].likes;
+  likeInfo.TylerHerman = info[2].likes;
 
-  console.log(likeInfo);
   res.send(likeInfo);
 
 });
 
-// info.forEach(function(person){
-//   app.post('/likes'+person.name.replace(" ", ""), function(req, res) {
-//     console.log("pressed: " + JSON.stringify(req.body).charAt(2).toLowerCase());
-//     if()
-//
-//   });
-//
-// });
-
-  app.post('/likes/BrianSchorn', function(req, res) {
-    bLikes++;
-    console.log(bLikes);
+info.forEach(function(person){
+  app.post('/likes/'+person.name.replace(" ", ""), function(req, res) {
+    console.log(info[req.body.id]);
+    info[req.body.id].likes++;
+    console.log(info[req.body.id]);
     res.sendStatus(200);
   });
 
-  app.post('/likes/ErikNoonan', function(req, res) {
-    eLikes++;
-    res.sendStatus(200);
-  });
 
-  app.post('/likes/TylerHerman', function(req, res) {
-    tLikes++;
-    res.sendStatus(200);
-  });
+});
+  //
+  // app.post('/likes/BrianSchorn', function(req, res) {
+  //   info[0].likes++;
+  //   res.sendStatus(200);
+  // });
+  //
+  // app.post('/likes/ErikNoonan', function(req, res) {
+  //   info[1].likes++;
+  //   res.sendStatus(200);
+  // });
+  //
+  // app.post('/likes/TylerHerman', function(req, res) {
+  //   info[3].likes++;
+  //   res.sendStatus(200);
+  // });
 
 
 

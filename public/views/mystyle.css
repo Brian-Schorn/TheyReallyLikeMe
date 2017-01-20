@@ -1,4 +1,6 @@
 img {
   height: 200px;
   width: auto;
+  display: block;
+  padding: 20px;
 }

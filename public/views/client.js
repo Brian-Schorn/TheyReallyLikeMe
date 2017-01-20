@@ -18,11 +18,14 @@ function getInfo() {
 //Appends the information in the data.json to the DOM in a readable format
   function displayInfo(info){
     console.log(info);
+    var idVar = 0;
     info.forEach(function(person){
       $('#container').append("<li>Name: " + person.name);
       $('#container').append("Bio: " + person.bio);
-      $('#container').append("<img src='./assets/" + person.imgURL + "' />");
-      $('#container').append("Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
+      $('#container').append("<br>Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name='" + person.name.replace(" ", "") + "' data-num='" + idVar +"'>Like!</button>");
+      $('#container').append("<img src='./assets/" + person.imgURL + "' /></li>");
+      idVar++;
+      // $('#container').append("Likes: " + "<span id =" + person.name.replace(" ", "") + ">" + person.likes + "</span>   " + "<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
       // $('#container').append("<button class='like' data-name=" + person.name.replace(" ", "") + ">Like!</button>" + "</li>");
     });
     getLikes();
@@ -54,11 +57,11 @@ function displayLikes(likes) {
 
 function updateLikes(event) {
   console.log("Button Clicked");
-  // console.log($(this).data("name"));
+  console.log($(this).data("num"));
   $.ajax({
     url: '/likes/' + $(this).data("name"),
     type: 'POST',
-    data: $(this).data("name"),
+    data: {id: $(this).data("num")},
     success: getLikes
   })
 }
